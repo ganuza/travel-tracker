@@ -9,3 +9,19 @@ import './images/turing-logo.png'
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+import {
+  getUserDetails
+} from './data-model/user-data'
+
+import {
+  fetchData,
+  promises,
+} from './apiCalls'
+
+window.addEventListener('load', () => {
+  Promise.all(promises)
+  .then(data => {
+    getUserDetails(data[0], 38)
+  })
+})
