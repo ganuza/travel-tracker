@@ -11,7 +11,8 @@ import './images/turing-logo.png'
 console.log('This is the JavaScript entry file - your code begins here.');
 
 import {
-  getUserDetails
+  getUserDetails,
+  getUserTripsDetails
 } from './data-model/user-data'
 
 import {
@@ -23,5 +24,6 @@ window.addEventListener('load', () => {
   Promise.all(promises)
   .then(data => {
     getUserDetails(data[0], 38)
+    getUserTripsDetails(data[1], 38)
   })
 })
