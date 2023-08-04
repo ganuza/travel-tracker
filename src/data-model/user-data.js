@@ -17,10 +17,21 @@ const getUserDetails = (dataObject, user) => {
   // return array
 
 }
-// console.log(getUserDetails(data[0]))
+
+const getUserTripsDetails = (dataObject, user) => {
+  console.log('tripsdataObject: ', dataObject)
+  const userTripsDetails = dataObject.trips.filter((trip) => {
+    return trip.userID === user
+  })
+  console.log('userTripsDetails: ', userTripsDetails)
+  return userTripsDetails
+}
+
+
 
 
 
 export {
-  getUserDetails
+  getUserDetails,
+  getUserTripsDetails
 }
