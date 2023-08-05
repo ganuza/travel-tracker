@@ -23,6 +23,10 @@ import {
   promises,
 } from './apiCalls'
 
+import {
+  displayUser,
+} from './domUpdates'
+
 var mainData = {}
 
 window.addEventListener('load', () => {
@@ -33,5 +37,8 @@ window.addEventListener('load', () => {
     mainData.destinations = data[2].destinations
     // console.log(getUserDestinations(mainData))
     getUserDestinations(mainData)
+    console.log('mainData: ', mainData)
+    displayUser(mainData)
   })
+  
 })
