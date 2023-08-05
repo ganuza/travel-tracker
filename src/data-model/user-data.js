@@ -33,5 +33,6 @@ const getUserTripsDetails = (dataObject, user) => {
 
 export {
   getUserDetails,
-  getUserTripsDetails
+  getUserTripsDetails,
+  getUserDestinationDetails,
 }
