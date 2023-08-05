@@ -31,6 +31,6 @@ window.addEventListener('load', () => {
     mainData.userDetails = getUserDetails(data[0], 38)
     mainData.userTrips = getUserTripsDetails(data[1], 38)
     mainData.destinations = data[2].destinations
-    console.log(getUserDestinations(mainData))
+    // console.log(getUserDestinations(mainData))
   })
 })
