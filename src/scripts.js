@@ -15,7 +15,7 @@ const dayjs = require('dayjs');
 import {
   getUserDetails,
   getUserTripsDetails,
-  getUserDestinationDetails,
+  getUserDestinations,
 } from './data-model/user-data'
 
 import {
@@ -32,5 +32,6 @@ window.addEventListener('load', () => {
     mainData.userTrips = getUserTripsDetails(data[1], 38)
     mainData.destinations = data[2].destinations
     // console.log(getUserDestinations(mainData))
+    getUserDestinations(mainData)
   })
 })

@@ -1,5 +1,4 @@
-
-
+const dayjs = require('dayjs');
 
 const getUserDetails = (dataObject, user) => {
   console.log('dataObject.travelers: ', dataObject.travelers)
@@ -27,6 +26,44 @@ const getUserTripsDetails = (dataObject, user) => {
   return userTripsDetails
 }
 
+const getUserDestinations = (globalData) => {
+  console.log('mainData: ', globalData)
+  const userDestinations = globalData.userTrips.map((trip) => {
+    
+    // console.log('trip.destinationID: ', trip.destinationID)
+    // console.log('globalData.destinations.id: ', globalData.destinations)
+    
+    const currentDestination = globalData.destinations.find((destination) => {
+      // console.log('trip.destinationID: ', trip.destinationID)
+      // console.log('destination.id: ', destination.id)
+      return trip.destinationID === destination.id
+    })
+
+    console.log('currentDestination: ', currentDestination)
+
+    console.log(dayjs(trip.date).add(10,'day').format('MM-DD-YYYY'))
+
+    const dates = `${dayjs(trip.date).format('MM-DD-YYYY')} - ${dayjs(trip.date).add((trip.duration),'day').format('MM-DD-YYYY')}`
+
+    console.log('dates: ', dates)
+
+    return {
+       name: currentDestination.destination,
+       dates: dates,
+       travelers: trip.travelers,
+       cost: findCost(currentDestination, trip),
+       image: currentDestination.image,
+    }
+    
+  })
+  console.log('userDestinations: ', userDestinations)
+  return userDestinations
+}
+
+const findCost = (currentDestination, trip) => {
+  return (((trip.travelers * currentDestination.estimatedFlightCostPerPerson) + (trip.duration * currentDestination.estimatedLodgingCostPerDay)) * 1.1).toFixed(2)
+
+}
 
 
 
@@ -34,5 +71,5 @@ const getUserTripsDetails = (dataObject, user) => {
 export {
   getUserDetails,
   getUserTripsDetails,
-  // getUserDestinationDetails,
+  getUserDestinations,
 }
