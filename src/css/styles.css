@@ -36,9 +36,21 @@ p, h1, h2, h3, h4, h5, h6 {
 
 
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
+  background-image: url(../images/lauterbrunnen.jpg);
+  background-size: cover;
+
+}
+
+header {
+  border: 1px solid red;
+  height: 10vh;
 }
 
 main {
-  border: 1px solid black
+  border: 1px solid black;
+  height: 50vh;
+  width: 70%;
+  background-color: white;
+  opacity: .7;
 }
