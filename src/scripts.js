@@ -25,6 +25,7 @@ import {
 
 import {
   displayUser,
+  displayTrips
 } from './domUpdates'
 
 var mainData = {}
@@ -32,13 +33,16 @@ var mainData = {}
 window.addEventListener('load', () => {
   Promise.all(promises)
   .then(data => {
-    mainData.userDetails = getUserDetails(data[0], 38)
-    mainData.userTrips = getUserTripsDetails(data[1], 38)
+    mainData.userDetails = getUserDetails(data[0], 33)
+    mainData.userTrips = getUserTripsDetails(data[1], 33)
     mainData.destinations = data[2].destinations
     // console.log(getUserDestinations(mainData))
     getUserDestinations(mainData)
     console.log('mainData: ', mainData)
     displayUser(mainData)
+    const userDestinations = getUserDestinations(mainData)
+    console.log('HERE: ', userDestinations)
+    displayTrips(userDestinations)
   })
   
 })
