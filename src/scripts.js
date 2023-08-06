@@ -28,12 +28,20 @@ import {
   displayTrips
 } from './domUpdates'
 
+// MOVE THESE TO DOMUPDATES
 const loginButton = document.querySelector('.login-submit-button')
 const loginPage = document.querySelector('.login-form')
 const mainPage = document.querySelector('.main-trip-page')
 const header = document.querySelector('header')
 const findTripButton = document.querySelector('.find-trip-button')
 const findTripInputPage = document.querySelector('.find-trip-input-page')
+const newTripDate = document.querySelector('#date-input')
+const newTripDuration = document.querySelector('#duration-input')
+const newTripTravelers = document.querySelector('#traveler-input')
+const destinationsPage = document.querySelector('.destinations-page')
+
+
+const findDestinationsButton = document.querySelector('.search-destinations-button')
 
 var mainData = {}
 
@@ -65,3 +73,31 @@ loginButton.addEventListener('click', (e) => {
   hideLoginShowMain()
 })
 
+const hideTripPageShowTripInputPage = () => {
+  mainPage.classList.add('hidden')
+  findTripInputPage.classList.remove('hidden')
+}
+
+findTripButton.addEventListener('click', () => {
+  hideTripPageShowTripInputPage()
+})
+
+findDestinationsButton.addEventListener('click', () => {
+  const newTripDateInput = newTripDate.value
+  const newTripDurationInput = newTripDuration.value
+  const newTripTravelersInput = newTripTravelers.value
+
+  console.log('newTripDateInput: ', newTripDateInput)
+  console.log('newTripDurationInput', newTripDurationInput)
+  console.log('newTripTravelersInput', newTripTravelersInput)
+  
+  hideTripInputPageShowDestinations()
+
+  
+
+})
+
+const hideTripInputPageShowDestinations = () => {
+  findTripInputPage.classList.add('hidden')
+  destinationsPage.classList.remove('hidden')
+}
