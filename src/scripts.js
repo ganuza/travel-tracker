@@ -28,6 +28,13 @@ import {
   displayTrips
 } from './domUpdates'
 
+const loginButton = document.querySelector('.login-submit-button')
+const loginPage = document.querySelector('.login-form')
+const mainPage = document.querySelector('.main-trip-page')
+const header = document.querySelector('header')
+const findTripButton = document.querySelector('.find-trip-button')
+const findTripInputPage = document.querySelector('.find-trip-input-page')
+
 var mainData = {}
 
 window.addEventListener('load', () => {
@@ -46,3 +53,15 @@ window.addEventListener('load', () => {
   })
   
 })
+
+const hideLoginShowMain = () => {
+  loginPage.classList.add('hidden')
+  mainPage.classList.remove('hidden')
+  header.classList.remove('hidden')
+}
+
+loginButton.addEventListener('click', (e) => {
+  e.preventDefault()
+  hideLoginShowMain()
+})
+

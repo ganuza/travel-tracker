@@ -47,7 +47,11 @@ header {
   height: 10vh;
 }
 
-main {
+.hidden {
+  display: none;
+}
+
+.main-trip-page {
   overflow-x: scroll;
   border: 1px solid black;
   height: 50vh;
@@ -72,11 +76,11 @@ main {
   justify-content: center;
   margin: 20px auto;
   padding:5px 5px;
-  height: 280px;
+  height: 350px;
   width: 200px;
 }
 
 .user-trips-img {
-  height: auto;
-  width: auto;
+  height: 50px;
+  width: 200px;
 }
