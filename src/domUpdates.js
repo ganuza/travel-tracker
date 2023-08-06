@@ -37,16 +37,13 @@ const displayTrips = (userDestinations) => {
   userDestinations.forEach((destination) => {
     tripsGrid.innerHTML += `<article class="trip-card">
   
-  <img class="user-trips-img src="${destination.image}">
+  <img class="user-trips-img" src=${destination.image}>
   <h2 class="trip-card-destination">${destination.name}</h2>
   <h3 class="trip-card-dates">Dates: ${destination.dates}</h3>
   <h3 class="trip-card-travelers">Travelers: ${destination.travelers}</h3>
   </article>`
   
 })
-
-  
-
 }
 
 
