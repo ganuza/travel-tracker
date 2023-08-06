@@ -92,9 +92,7 @@ findDestinationsButton.addEventListener('click', () => {
   console.log('newTripTravelersInput', newTripTravelersInput)
   
   hideTripInputPageShowDestinations()
-
   
-
 })
 
 const hideTripInputPageShowDestinations = () => {
