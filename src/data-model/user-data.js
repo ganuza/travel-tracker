@@ -61,9 +61,9 @@ const getUserDestinations = (globalData) => {
 }
 
 const findCost = (currentDestination, trip) => {
-  return (((trip.travelers * currentDestination.estimatedFlightCostPerPerson) + (trip.duration * currentDestination.estimatedLodgingCostPerDay)) * 1.1).toFixed(2)
-
+  return (((trip.travelers * currentDestination.estimatedFlightCostPerPerson) + (trip.duration * currentDestination.estimatedLodgingCostPerDay)) * 1.1)
 }
+
 
 
 
