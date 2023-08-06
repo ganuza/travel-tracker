@@ -1,5 +1,5 @@
 
-
+// querySelectors
 
 var welcomeHeading = document.querySelector('.welcome-heading')
 
