@@ -25,7 +25,8 @@ import {
 
 import {
   displayUser,
-  displayTrips
+  displayTrips,
+  displayDestinationCards,
 } from './domUpdates'
 
 // MOVE THESE TO DOMUPDATES
@@ -92,7 +93,7 @@ findDestinationsButton.addEventListener('click', () => {
   console.log('newTripTravelersInput', newTripTravelersInput)
   
   hideTripInputPageShowDestinations()
-  
+  displayDestinationCards(mainData, newTripDateInput, newTripDurationInput, newTripTravelersInput)
 })
 
 const hideTripInputPageShowDestinations = () => {

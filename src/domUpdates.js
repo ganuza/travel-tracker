@@ -5,6 +5,7 @@ var welcomeHeading = document.querySelector('.welcome-heading')
 
 var dashboardTotalSpent = document.querySelector('.trips-total')
 var tripsGrid = document.querySelector('.all-trips-grid')
+var destinationsGrid = document.querySelector(".destinations-grid")
 
 
 const displayUser = (currentUser) => {
@@ -46,9 +47,29 @@ const displayTrips = (userDestinations) => {
 })
 }
 
+const displayDestinationCards = (globalData, date, duration, travelers) => {
+  destinationsGrid.innerHTML = ''
+  const destinations = globalData.destinations.forEach((destination) => {
+    destinationsGrid.innerHTML += `<article class="destination-card">
+    <img class="destination-card-img" src=${destination.image}>
+    <h2 class="destination-card-name">${destination.destination}</h2>
+    <h3 class="destination-card-dates">Date: ${date}</h3>
+    <h3 class="destination-card-duration">Duration: ${duration} days</h3>
+    <h3 class="destination-card-travelers">Travelers: ${travelers}
+    </article>`
+    
+
+  })
+  
+
+
+
+
+}
 
 
 export {
   displayUser,
-  displayTrips
+  displayTrips,
+  displayDestinationCards,
 }
