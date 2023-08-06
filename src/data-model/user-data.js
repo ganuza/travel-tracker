@@ -68,13 +68,7 @@ const findNewDestinationCost = (duration, travelers, destinationData) => {
   return (((travelers * destinationData.estimatedFlightCostPerPerson) + (duration * destinationData.estimatedLodgingCostPerDay)) * 1.1)
 }
 
-const getNewDestinationCards = (globalData, date, duration, travelers) => {
-  
 
-
-
-
-}
 
 export {
   getUserDetails,

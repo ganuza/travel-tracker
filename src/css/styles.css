@@ -61,14 +61,16 @@ header {
   margin-top: 200px;
 }
 
-.all-trips-grid {
+.all-trips-grid,
+.destinations-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* grid-gap: 20px;
-  padding: 20px;   */
+  grid-gap: 20px;
+  padding: 20px;
 }
 
-.trip-card {
+.trip-card,
+.destination-card {
   border: 1px solid blue;
   background-color: lightgrey;
   display: flex;
