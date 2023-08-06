@@ -39,7 +39,7 @@ body {
   /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
   background-image: url(../images/lauterbrunnen.jpg);
   background-size: cover;
-
+  display: flex;
 }
 
 header {
@@ -48,9 +48,35 @@ header {
 }
 
 main {
+  overflow-x: scroll;
   border: 1px solid black;
   height: 50vh;
-  width: 70%;
+  width: 75vw;
   background-color: white;
   opacity: .7;
+  margin-top: 200px;
+}
+
+.all-trips-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-gap: 20px;
+  padding: 20px;   */
+}
+
+.trip-card {
+  border: 1px solid blue;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  padding:5px 5px;
+  height: 280px;
+  width: 200px;
+}
+
+.user-trips-img {
+  height: auto;
+  width: auto;
 }
