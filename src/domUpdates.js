@@ -10,8 +10,9 @@ var welcomeHeading = document.querySelector('.welcome-heading')
 
 var dashboardTotalSpent = document.querySelector('.trips-total')
 var tripsGrid = document.querySelector('.all-trips-grid')
-var destinationsGrid = document.querySelector(".destinations-grid")
-
+var destinationsGrid = document.querySelector('.destinations-grid')
+var bookedTripMsgContainer = document.querySelector('#booked-trip-container')
+var bookedTripGrid = document.querySelector('.booked-trip-grid')
 
 const displayUser = (currentUser) => {
   console.log('currentUser: ', currentUser.userDetails.name)
@@ -58,6 +59,7 @@ const displayTrips = (userDestinations) => {
   <h2 class="trip-card-destination">${destination.name}</h2>
   <h3 class="trip-card-dates">Dates: ${destination.dates}</h3>
   <h3 class="trip-card-travelers">Travelers: ${destination.travelers}</h3>
+  <h3 class="trip-card-status">Status: <span>${destination.status}</span></h3>
   </article>`
   
 })
@@ -89,9 +91,25 @@ const displayDestinationCards = (destinationCardsInfo) => {
   })
 }
 
+const displayBookedTripMessage = (bookedDest) => {
+  // bookedTripMsgContainer.innerHTML = ''
+
+  const bookedTripDates = `${dayjs(bookedDest.date).format('MM-DD-YYYY')} - ${dayjs(bookedDest.date).add((bookedDest.duration),'day').format('MM-DD-YYYY')}`
+
+  bookedTripGrid.innerHTML += `<article class="booked-trip-card">
+  <img class="booked-trip-img" src=${bookedDest.image}>
+  <h2 class="booked-trip-name">${bookedDest.name}</h3>
+  <h4 class="booked-trip-dates">Dates: ${bookedTripDates}</h4>
+  <h4 class="booked-trip-travelers">Travelers: ${bookedDest.travelers}</h4>
+  <h4 class="booked-trip-cost">Cost: $${bookedDest.cost.toFixed(2)}</h4>
+  </article`
+
+}
+
 
 export {
   displayUser,
   displayTrips,
   displayDestinationCards,
+  displayBookedTripMessage,
 }

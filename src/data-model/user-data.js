@@ -57,6 +57,7 @@ const getUserDestinations = (globalData) => {
        (currentDestination, trip),
        currentYearCost: findCurrentYearTripCosts(currentDestination, trip),
        image: currentDestination.image,
+       status: trip.status
     }
     
   })
