@@ -45,14 +45,17 @@ const getUserDestinations = (globalData) => {
     console.log(dayjs(trip.date).add(10,'day').format('MM-DD-YYYY'))
 
     const dates = `${dayjs(trip.date).format('MM-DD-YYYY')} - ${dayjs(trip.date).add((trip.duration),'day').format('MM-DD-YYYY')}`
-
+    console.log('<<<<trip.date: ', trip.date)
+    console.log('<<<<<tripStatus: ', trip.status)
     console.log('dates: ', dates)
 
     return {
        name: currentDestination.destination,
        dates: dates,
        travelers: trip.travelers,
-       cost: findCost(currentDestination, trip),
+       cost: findCost
+       (currentDestination, trip),
+       currentYearCost: findCurrentYearTripCosts(currentDestination, trip),
        image: currentDestination.image,
     }
     
@@ -63,6 +66,15 @@ const getUserDestinations = (globalData) => {
 
 const findCost = (currentDestination, trip) => {
   return (((trip.travelers * currentDestination.estimatedFlightCostPerPerson) + (trip.duration * currentDestination.estimatedLodgingCostPerDay)) * 1.1)
+}
+
+const findCurrentYearTripCosts = (currentDestination, trip) => {
+ 
+  if (trip.status !== 'approved' && trip.date.startsWith('2023')) {
+    return (((trip.travelers * currentDestination.estimatedFlightCostPerPerson) + (trip.duration * currentDestination.estimatedLodgingCostPerDay)) * 1.1)
+  } else {
+    return 0
+  }
 }
 
 const findNewDestinationCost = (duration, travelers, destinationData) => {
