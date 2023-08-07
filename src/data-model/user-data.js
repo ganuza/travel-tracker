@@ -1,5 +1,6 @@
 const dayjs = require('dayjs');
 
+
 const getUserDetails = (dataObject, user) => {
   console.log('dataObject.travelers: ', dataObject.travelers)
   const userDetails = dataObject.travelers.find((traveler) => {
@@ -65,14 +66,40 @@ const findCost = (currentDestination, trip) => {
 }
 
 const findNewDestinationCost = (duration, travelers, destinationData) => {
+  console.log('-->duration: ', destinationData)
+  console.log('-->travelers: ', destinationData.estimatedLodgingCostPerDay)
   return (((travelers * destinationData.estimatedFlightCostPerPerson) + (duration * destinationData.estimatedLodgingCostPerDay)) * 1.1)
 }
 
+const createDestinationsInfo = (globalData, date, duration, travelers) => {
+  const destinationCardsInfo = globalData.destinations.map((destination) => {
 
+    
+
+    return {
+      name: destination.destination,
+      id: globalData.destinations.length + 1, 
+      userID: globalData.userDetails.id, 
+      destinationID: destination.id,
+      image: destination.image,
+      travelers: travelers,
+      cost: findNewDestinationCost(duration, travelers, destination),
+      date: date, 
+      duration: duration, 
+      status: 'pending', 
+      suggestedActivities: [],
+    }
+
+
+  })
+  console.log('destinationCardsInfo: ', destinationCardsInfo)
+  return destinationCardsInfo
+}
 
 export {
   getUserDetails,
   getUserTripsDetails,
   getUserDestinations,
   findNewDestinationCost,
+  createDestinationsInfo,
 }
