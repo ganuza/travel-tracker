@@ -37,8 +37,19 @@ const displayTrips = (userDestinations) => {
     return sum
   }, 0)
   // console.log('totalSpent: ', totalSpent)
+  const spendingThisYear = userDestinations.reduce((sum, trip) => {
+    // console.log('typeof: ',typeof(sum))
+    console.log('<<<<trip.currentYearCost: ', trip.currentYearCost)
+    sum += trip.currentYearCost
+    console.log('SUM: ', sum)
+
+    return sum
+  }, 0)
+  // console.log('totalSpent: ', totalSpent)
   
-  dashboardTotalSpent.innerHTML = `<h2>Total Spent:  $${totalSpent.toFixed(2)}</h2>`
+  dashboardTotalSpent.innerHTML = `
+  <h2>Current Year Spending:  $${spendingThisYear.toFixed(2)}</h2>
+  <h2>Total Spent:  $${totalSpent.toFixed(2)}</h2>`
 
   userDestinations.forEach((destination) => {
     tripsGrid.innerHTML += `<article class="trip-card">
