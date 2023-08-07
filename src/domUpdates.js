@@ -1,3 +1,8 @@
+const dayjs = require('dayjs');
+
+import {
+  findNewDestinationCost,
+} from './data-model/user-data.js'
 
 // querySelectors
 
@@ -22,7 +27,7 @@ const displayUser = (currentUser) => {
 const displayTrips = (userDestinations) => {
   // console.log('----->>>>>>>', userDestinations.name)
   tripsGrid.innerHTML = ''
-
+  
   const totalSpent = userDestinations.reduce((sum, trip) => {
     // console.log('typeof: ',typeof(sum))
 
@@ -47,24 +52,30 @@ const displayTrips = (userDestinations) => {
 })
 }
 
-const displayDestinationCards = (globalData, date, duration, travelers) => {
+const displayDestinationCards = (destinationCardsInfo) => {
   destinationsGrid.innerHTML = ''
-  const destinations = globalData.destinations.forEach((destination) => {
+  const destinations = destinationCardsInfo.forEach((destination) => {
+    const newTripCost = destination.cost
+    console.log('NewTripDuration: ', destination.duration)
+    console.log('NewTripTravelers: ', destination.travelers)
+    console.log('NewTripData: ', destination)
+    
+    console.log('TRIP COST: ', newTripCost)
+
+    const newTripDates = `${dayjs(destination.date).format('MM-DD-YYYY')} - ${dayjs(destination.date).add((destination.duration),'day').format('MM-DD-YYYY')}`
+
     destinationsGrid.innerHTML += `<article class="destination-card">
     <img class="destination-card-img" src=${destination.image}>
-    <h2 class="destination-card-name">${destination.destination}</h2>
-    <h3 class="destination-card-dates">Date: ${date}</h3>
-    <h3 class="destination-card-duration">Duration: ${duration} days</h3>
-    <h3 class="destination-card-travelers">Travelers: ${travelers}
+    <h2 class="destination-card-name">${destination.name}</h2>
+    <h4 class="destination-card-dates">Dates: ${newTripDates}</h4>
+    <h4 class="destination-card-duration">Duration: ${destination.duration} days</h4>
+    <h4 class="destination-card-travelers">Travelers: ${destination.travelers}</h4>
+    <h4 class="destination-card-trip-cost">Total Cost: $${newTripCost.toFixed(2)}</h4>
+    <button class="button" id="${destination.destinationID}">Book Trip</button>
     </article>`
-    
+
 
   })
-  
-
-
-
-
 }
 
 

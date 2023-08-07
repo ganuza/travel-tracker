@@ -16,11 +16,13 @@ import {
   getUserDetails,
   getUserTripsDetails,
   getUserDestinations,
+  createDestinationsInfo,
 } from './data-model/user-data'
 
 import {
   fetchData,
   promises,
+  postData,
 } from './apiCalls'
 
 import {
@@ -28,6 +30,8 @@ import {
   displayTrips,
   displayDestinationCards,
 } from './domUpdates'
+
+var possibleTripDetails
 
 // MOVE THESE TO DOMUPDATES
 const loginButton = document.querySelector('.login-submit-button')
@@ -40,7 +44,7 @@ const newTripDate = document.querySelector('#date-input')
 const newTripDuration = document.querySelector('#duration-input')
 const newTripTravelers = document.querySelector('#traveler-input')
 const destinationsPage = document.querySelector('.destinations-page')
-
+// const destinationCardsGrid = document.querySelector('destinations-grid')
 
 const findDestinationsButton = document.querySelector('.search-destinations-button')
 
@@ -85,18 +89,46 @@ findTripButton.addEventListener('click', () => {
 
 findDestinationsButton.addEventListener('click', () => {
   const newTripDateInput = newTripDate.value
-  const newTripDurationInput = newTripDuration.value
-  const newTripTravelersInput = newTripTravelers.value
+  const newTripDurationInput = parseInt(newTripDuration.value)
+  const newTripTravelersInput = parseInt(newTripTravelers.value)
 
   console.log('newTripDateInput: ', newTripDateInput)
   console.log('newTripDurationInput', newTripDurationInput)
   console.log('newTripTravelersInput', newTripTravelersInput)
   
   hideTripInputPageShowDestinations()
-  displayDestinationCards(mainData, newTripDateInput, newTripDurationInput, newTripTravelersInput)
+  const destinationCardsInfo = createDestinationsInfo(mainData, newTripDateInput, newTripDurationInput, newTripTravelersInput)
+  console.log('HEREdestinationCardsInfo: ', destinationCardsInfo)
+  displayDestinationCards(destinationCardsInfo)
+  possibleTripDetails = destinationCardsInfo
 })
 
 const hideTripInputPageShowDestinations = () => {
   findTripInputPage.classList.add('hidden')
   destinationsPage.classList.remove('hidden')
 }
+
+destinationsPage.addEventListener('click', (event) => {
+  console.log('>>>>>>>>>>HERE: ', possibleTripDetails)
+
+  console.log('eventtargetclosest: ', event.target)
+
+  console.log('parsedbuttonid: ',(parseInt(event.target.closest('button').id )))
+  console.log('>>>>>: ', mainData.destinations)
+  const buttonId = (parseInt(event.target.closest('button').id ))
+  const chosenDestination = possibleTripDetails[buttonId - 1]
+    
+  console.log('chosenDestination: ', chosenDestination)
+  
+  postData(chosenDestination)
+    .then(() => {
+      fetchData('trips')
+        .then(data => {
+          mainData.userTrips = getUserTripsDetails(data, 33)
+          console.log('mainData.userTrips: ', mainData.userTrips)
+      })
+    })
+  })
+    
+    
+

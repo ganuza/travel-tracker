@@ -54,10 +54,10 @@ header {
 .main-trip-page {
   overflow-x: scroll;
   border: 1px solid black;
-  height: 50vh;
-  width: 75vw;
+  height: 67vh;
+  width: auto;
   background-color: white;
-  opacity: .7;
+  opacity: .8;
   margin-top: 200px;
 }
 
@@ -72,21 +72,29 @@ header {
 .trip-card,
 .destination-card {
   border: 1px solid blue;
+  border-radius: 15px;
   background-color: lightgrey;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   margin: 20px auto;
   padding:5px 5px;
-  height: 350px;
-  width: 200px;
+  height: 500px;
+  width: 270px;
 }
 
-.user-trips-img {
-  height: 50px;
-  width: 200px;
+.user-trips-img,
+.destination-card-img {
+  height: 160px;
+  width: auto;
 }
 
 #duration-input {
   width: 150px;
+}
+
+.destinations-page {
+  height: 800px;
+  overflow-y: scroll;
+
 }
