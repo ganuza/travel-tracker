@@ -1,3 +1,8 @@
+const dayjs = require('dayjs');
+
+import {
+  findNewDestinationCost,
+} from './data-model/user-data.js'
 
 // querySelectors
 
@@ -5,6 +10,7 @@ var welcomeHeading = document.querySelector('.welcome-heading')
 
 var dashboardTotalSpent = document.querySelector('.trips-total')
 var tripsGrid = document.querySelector('.all-trips-grid')
+var destinationsGrid = document.querySelector(".destinations-grid")
 
 
 const displayUser = (currentUser) => {
@@ -21,7 +27,7 @@ const displayUser = (currentUser) => {
 const displayTrips = (userDestinations) => {
   // console.log('----->>>>>>>', userDestinations.name)
   tripsGrid.innerHTML = ''
-
+  
   const totalSpent = userDestinations.reduce((sum, trip) => {
     // console.log('typeof: ',typeof(sum))
 
@@ -46,9 +52,35 @@ const displayTrips = (userDestinations) => {
 })
 }
 
+const displayDestinationCards = (destinationCardsInfo) => {
+  destinationsGrid.innerHTML = ''
+  const destinations = destinationCardsInfo.forEach((destination) => {
+    const newTripCost = destination.cost
+    console.log('NewTripDuration: ', destination.duration)
+    console.log('NewTripTravelers: ', destination.travelers)
+    console.log('NewTripData: ', destination)
+    
+    console.log('TRIP COST: ', newTripCost)
+
+    const newTripDates = `${dayjs(destination.date).format('MM-DD-YYYY')} - ${dayjs(destination.date).add((destination.duration),'day').format('MM-DD-YYYY')}`
+
+    destinationsGrid.innerHTML += `<article class="destination-card">
+    <img class="destination-card-img" src=${destination.image}>
+    <h2 class="destination-card-name">${destination.name}</h2>
+    <h4 class="destination-card-dates">Dates: ${newTripDates}</h4>
+    <h4 class="destination-card-duration">Duration: ${destination.duration} days</h4>
+    <h4 class="destination-card-travelers">Travelers: ${destination.travelers}</h4>
+    <h4 class="destination-card-trip-cost">Total Cost: $${newTripCost.toFixed(2)}</h4>
+    <button class="button" id="${destination.destinationID}">Book Trip</button>
+    </article>`
+
+
+  })
+}
 
 
 export {
   displayUser,
-  displayTrips
+  displayTrips,
+  displayDestinationCards,
 }
