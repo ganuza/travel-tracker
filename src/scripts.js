@@ -29,6 +29,7 @@ import {
   displayUser,
   displayTrips,
   displayDestinationCards,
+  displayBookedTripMessage,
 } from './domUpdates'
 
 var possibleTripDetails
@@ -44,9 +45,11 @@ const newTripDate = document.querySelector('#date-input')
 const newTripDuration = document.querySelector('#duration-input')
 const newTripTravelers = document.querySelector('#traveler-input')
 const destinationsPage = document.querySelector('.destinations-page')
+const bookedTripPage = document.querySelector('.trip-booked-page')
 // const destinationCardsGrid = document.querySelector('destinations-grid')
 
 const findDestinationsButton = document.querySelector('.search-destinations-button')
+const bookedTripPageDashBtn = document.querySelector('#button-to-dash')
 
 var mainData = {}
 
@@ -108,6 +111,11 @@ const hideTripInputPageShowDestinations = () => {
   destinationsPage.classList.remove('hidden')
 }
 
+const hideDestPageShowBookedPage = () => {
+  destinationsPage.classList.add('hidden')
+  bookedTripPage.classList.remove('hidden')
+}
+
 destinationsPage.addEventListener('click', (event) => {
   console.log('>>>>>>>>>>HERE: ', possibleTripDetails)
 
@@ -128,7 +136,17 @@ destinationsPage.addEventListener('click', (event) => {
           console.log('mainData.userTrips: ', mainData.userTrips)
       })
     })
-  })
-    
-    
+  
+  hideDestPageShowBookedPage()
+  displayBookedTripMessage(chosenDestination)
+})
+
+const hideBookedTripShowDash = () => {
+  bookedTripPage.classList.add('hidden')
+  mainPage.classList.remove('hidden')
+}
+
+bookedTripPageDashBtn.addEventListener('click', () => {
+  hideBookedTripShowDash()
+})
 

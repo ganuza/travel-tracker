@@ -61,8 +61,13 @@ header {
   margin-top: 200px;
 }
 
+span {
+  color: red;
+}
+
 .all-trips-grid,
-.destinations-grid {
+.destinations-grid,
+.booked-trip-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
@@ -70,7 +75,8 @@ header {
 }
 
 .trip-card,
-.destination-card {
+.destination-card,
+.booked-trip-card {
   border: 1px solid blue;
   border-radius: 15px;
   background-color: lightgrey;
