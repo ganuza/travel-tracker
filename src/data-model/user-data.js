@@ -63,6 +63,7 @@ const getUserDestinations = (globalData) => {
       return {
        name: currentDestination.destination,
        dates: dates,
+       alt: currentDestination.alt,
        travelers: trip.travelers,
        cost: findCost(currentDestination, trip),
        currentYearCost: findCurrentYearTripCosts(currentDestination, trip),
@@ -126,6 +127,7 @@ const createDestinationsInfo = (globalData, date, duration, travelers) => {
       userID: globalData.userDetails.id, 
       destinationID: destination.id,
       image: destination.image,
+      alt: destination.alt,
       travelers: travelers,
       cost: findNewDestinationCost(duration, travelers, destination),
       date: date, 

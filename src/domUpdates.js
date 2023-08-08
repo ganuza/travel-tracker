@@ -61,7 +61,7 @@ const displayTrips = (userDestinations) => {
     }
     tripsGrid.innerHTML += `<article class="trip-card">
   
-  <img class="user-trips-img" src=${destination.image}>
+  <img class="user-trips-img" src=${destination.image} alt=${destination.alt}>
   <h2 class="trip-card-destination">${destination.name}</h2>
   <h3 class="trip-card-dates">Dates: ${destination.dates}</h3>
   <h3 class="trip-card-travelers">Travelers: ${destination.travelers}</h3>
@@ -86,7 +86,7 @@ const displayDestinationCards = (destinationCardsInfo) => {
     const newTripDates = `${dayjs(destination.date).format('MM-DD-YYYY')} - ${dayjs(destination.date).add((destination.duration),'day').format('MM-DD-YYYY')}`
 
     destinationsGrid.innerHTML += `<article class="destination-card">
-    <img class="destination-card-img" src=${destination.image}>
+    <img class="destination-card-img" src=${destination.image} alt=${destination.alt}>
     <h2 class="destination-card-name">${destination.name}</h2>
     <h4 class="destination-card-dates">Dates: ${newTripDates}</h4>
     <h4 class="destination-card-duration">Duration: ${destination.duration} days</h4>
