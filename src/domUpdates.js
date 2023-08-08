@@ -53,13 +53,19 @@ const displayTrips = (userDestinations) => {
   <h2>Total Spent:  $${totalSpent.toFixed(2)}</h2>`
 
   userDestinations.forEach((destination) => {
+    let color
+    if (destination.status === 'pending') {
+      color = 'red'
+    } else if (destination.status === 'approved') {
+      color = 'green'
+    }
     tripsGrid.innerHTML += `<article class="trip-card">
   
   <img class="user-trips-img" src=${destination.image}>
   <h2 class="trip-card-destination">${destination.name}</h2>
   <h3 class="trip-card-dates">Dates: ${destination.dates}</h3>
   <h3 class="trip-card-travelers">Travelers: ${destination.travelers}</h3>
-  <h3 class="trip-card-status">Status: <span>${destination.status}</span></h3>
+  <h3 class="trip-card-status ${color}">Status: ${destination.status}</h3>
   </article>`
   
 })
@@ -67,6 +73,8 @@ const displayTrips = (userDestinations) => {
 
 const displayDestinationCards = (destinationCardsInfo) => {
   destinationsGrid.innerHTML = ''
+
+  
   const destinations = destinationCardsInfo.forEach((destination) => {
     const newTripCost = destination.cost
     console.log('NewTripDuration: ', destination.duration)
