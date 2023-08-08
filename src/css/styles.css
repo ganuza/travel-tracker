@@ -57,12 +57,17 @@ body {
 }
 .logo-container {
   margin-bottom: 100px;
+  justify-content: space-evenly;
 }
+
 h1 {
   font-size: 90px;
 }
+
 header {
   /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
   height: 10vh;
   width: auto
 }
@@ -94,21 +99,29 @@ header {
 
 .header-logo {
   font-size: 48px;
-  width: 25%;
+  width: 25vw;
+  margin-top: 200px;
 }
 
+.welcome-user {
+  margin-top: 150px;
+}
 .main-trip-page {
   overflow-x: scroll;
   border: 1px solid black;
   height: 67vh;
   width: auto;
-  background-color: white;
+  background-color: gray;
   opacity: .8;
   margin-top: 200px;
 }
 
-span {
-  color: red;
+.trips-page-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin-top: 80px;
 }
 
 .all-trips-grid,
@@ -125,16 +138,25 @@ span {
 .booked-trip-card {
   border: 1px solid blue;
   border-radius: 15px;
-  background-color: lightgrey;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: left;
   margin: 20px auto;
   padding:5px 5px;
   height: 500px;
-  width: 270px;
+  width: 320px;
 }
 
+.trips-heading,
+.find-trip-input-page {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.trips-total {
+  margin-left: 50px;
+}
 .user-trips-img,
 .destination-card-img {
   height: 160px;
@@ -148,7 +170,6 @@ span {
 .destinations-page {
   height: 800px;
   overflow-y: scroll;
-
 }
 
 .red {
