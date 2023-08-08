@@ -36,8 +36,11 @@ export const postData = (bookedDestination) => {
       'Content-Type': 'application/json'
     }
   })
-  .then(res => res.json())
-  // .then(json => )
-  // .catch(err => )
-  
+  .then(res => {
+    if (!res.ok) {
+      throw new Error('Incorrect Data')
+    }
+    return res.json()
+  })
+    .catch(err => console.log(err))
 }
