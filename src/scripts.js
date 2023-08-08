@@ -36,7 +36,7 @@ var possibleTripDetails
 
 // MOVE THESE TO DOMUPDATES
 const loginButton = document.querySelector('.login-submit-button')
-const loginPage = document.querySelector('.login-form')
+const loginPage = document.querySelector('.login-page')
 const mainPage = document.querySelector('.main-trip-page')
 const header = document.querySelector('header')
 const findTripButton = document.querySelector('.find-trip-button')
@@ -94,10 +94,16 @@ findTripButton.addEventListener('click', () => {
 })
 
 findDestinationsButton.addEventListener('click', () => {
-  const newTripDateInput = newTripDate.value
+  const newTripDateInput = dayjs(newTripDate.value)
   const newTripDurationInput = parseInt(newTripDuration.value)
   const newTripTravelersInput = parseInt(newTripTravelers.value)
 
+  const today = dayjs()
+
+  if (!newTripDateInput || !newTripDurationInput || !newTripTravelersInput || newTripDateInput.isBefore(today)) {
+    console.log('INVALID INPUT')
+    return
+  }
   console.log('newTripDateInput: ', newTripDateInput)
   console.log('newTripDurationInput', newTripDurationInput)
   console.log('newTripTravelersInput', newTripTravelersInput)

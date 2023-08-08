@@ -33,36 +33,95 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-
+* {
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
 
 body {
   /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
   background-image: url(../images/lauterbrunnen.jpg);
   background-size: cover;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logo-container {
+  margin-bottom: 100px;
+  justify-content: space-evenly;
+}
+
+h1 {
+  font-size: 90px;
 }
 
 header {
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
   height: 10vh;
+  width: auto
 }
 
 .hidden {
   display: none;
 }
 
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 40vh;
+  background-color: white;
+  opacity: .8;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo {
+  font-size: 48px;
+  width: 25vw;
+  margin-top: 200px;
+}
+
+.welcome-user {
+  margin-top: 150px;
+}
 .main-trip-page {
   overflow-x: scroll;
   border: 1px solid black;
   height: 67vh;
   width: auto;
-  background-color: white;
+  background-color: gray;
   opacity: .8;
   margin-top: 200px;
 }
 
-span {
-  color: red;
+.trips-page-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin-top: 80px;
 }
 
 .all-trips-grid,
@@ -79,16 +138,25 @@ span {
 .booked-trip-card {
   border: 1px solid blue;
   border-radius: 15px;
-  background-color: lightgrey;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: left;
   margin: 20px auto;
   padding:5px 5px;
   height: 500px;
-  width: 270px;
+  width: 320px;
 }
 
+.trips-heading,
+.find-trip-input-page {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.trips-total {
+  margin-left: 50px;
+}
 .user-trips-img,
 .destination-card-img {
   height: 160px;
@@ -102,7 +170,6 @@ span {
 .destinations-page {
   height: 800px;
   overflow-y: scroll;
-
 }
 
 .red {
