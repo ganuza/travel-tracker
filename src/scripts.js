@@ -70,6 +70,7 @@ window.addEventListener('load', () => {
   
 })
 
+//// move to DomUpdates
 const hideLoginShowMain = () => {
   loginPage.classList.add('hidden')
   mainPage.classList.remove('hidden')
@@ -81,6 +82,8 @@ loginButton.addEventListener('click', (e) => {
   hideLoginShowMain()
 })
 
+
+////// move to DumUpdates
 const hideTripPageShowTripInputPage = () => {
   mainPage.classList.add('hidden')
   findTripInputPage.classList.remove('hidden')
@@ -106,11 +109,14 @@ findDestinationsButton.addEventListener('click', () => {
   possibleTripDetails = destinationCardsInfo
 })
 
+
+//////  move to DomUpdates
 const hideTripInputPageShowDestinations = () => {
   findTripInputPage.classList.add('hidden')
   destinationsPage.classList.remove('hidden')
 }
 
+/////////  move to DomUpdates
 const hideDestPageShowBookedPage = () => {
   destinationsPage.classList.add('hidden')
   bookedTripPage.classList.remove('hidden')
@@ -139,8 +145,12 @@ destinationsPage.addEventListener('click', (event) => {
   
   hideDestPageShowBookedPage()
   displayBookedTripMessage(chosenDestination)
+
+  
 })
 
+
+///////   move to DomUpdates  //////////
 const hideBookedTripShowDash = () => {
   bookedTripPage.classList.add('hidden')
   mainPage.classList.remove('hidden')
@@ -148,5 +158,8 @@ const hideBookedTripShowDash = () => {
 
 bookedTripPageDashBtn.addEventListener('click', () => {
   hideBookedTripShowDash()
+  const userDestinations = getUserDestinations(mainData)
+    console.log('UPDATED userDestinations', userDestinations)
+    displayTrips(userDestinations)
 })
 

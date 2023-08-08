@@ -104,3 +104,11 @@ span {
   overflow-y: scroll;
 
 }
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
