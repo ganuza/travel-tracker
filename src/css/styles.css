@@ -33,22 +33,68 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-
+* {
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
 
 body {
   /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
   background-image: url(../images/lauterbrunnen.jpg);
   background-size: cover;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+
 }
 
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logo-container {
+  margin-bottom: 100px;
+}
+h1 {
+  font-size: 90px;
+}
 header {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 10vh;
+  width: auto
 }
 
 .hidden {
   display: none;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 40vh;
+  background-color: white;
+  opacity: .8;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo {
+  font-size: 48px;
+  width: 25%;
 }
 
 .main-trip-page {

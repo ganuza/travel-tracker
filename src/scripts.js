@@ -36,7 +36,7 @@ var possibleTripDetails
 
 // MOVE THESE TO DOMUPDATES
 const loginButton = document.querySelector('.login-submit-button')
-const loginPage = document.querySelector('.login-form')
+const loginPage = document.querySelector('.login-page')
 const mainPage = document.querySelector('.main-trip-page')
 const header = document.querySelector('header')
 const findTripButton = document.querySelector('.find-trip-button')
