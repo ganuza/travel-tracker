@@ -74,7 +74,6 @@ const displayTrips = (userDestinations) => {
 const displayDestinationCards = (destinationCardsInfo) => {
   destinationsGrid.innerHTML = ''
 
-  
   const destinations = destinationCardsInfo.forEach((destination) => {
     const newTripCost = destination.cost
     console.log('NewTripDuration: ', destination.duration)
@@ -87,31 +86,27 @@ const displayDestinationCards = (destinationCardsInfo) => {
 
     destinationsGrid.innerHTML += `<article class="destination-card">
     <img class="destination-card-img" src=${destination.image} alt=${destination.alt}>
-    <h2 class="destination-card-name">${destination.name}</h2>
+    <h3 class="destination-card-name">${destination.name}</h3>
     <h4 class="destination-card-dates">Dates: ${newTripDates}</h4>
     <h4 class="destination-card-duration">Duration: ${destination.duration} days</h4>
     <h4 class="destination-card-travelers">Travelers: ${destination.travelers}</h4>
     <h4 class="destination-card-trip-cost">Total Cost: $${newTripCost.toFixed(2)}</h4>
     <button class="button" id="${destination.destinationID}">Book Trip</button>
     </article>`
-
-
   })
 }
 
 const displayBookedTripMessage = (bookedDest) => {
-  // bookedTripMsgContainer.innerHTML = ''
-
+  bookedTripGrid.innerHTML = ''
   const bookedTripDates = `${dayjs(bookedDest.date).format('MM-DD-YYYY')} - ${dayjs(bookedDest.date).add((bookedDest.duration),'day').format('MM-DD-YYYY')}`
 
   bookedTripGrid.innerHTML += `<article class="booked-trip-card">
-  <img class="booked-trip-img" src=${bookedDest.image}>
-  <h2 class="booked-trip-name">${bookedDest.name}</h3>
-  <h4 class="booked-trip-dates">Dates: ${bookedTripDates}</h4>
-  <h4 class="booked-trip-travelers">Travelers: ${bookedDest.travelers}</h4>
-  <h4 class="booked-trip-cost">Cost: $${bookedDest.cost.toFixed(2)}</h4>
+  <img class="booked-trip-img" src=${bookedDest.image} alt="${bookedDest.alt}>
+  <h2 class="booked-trip-name">${bookedDest.name}</h2>
+  <p class="booked-trip-card-details">Dates: ${bookedTripDates}</p>
+  <p class="booked-trip-card-details">Travelers: ${bookedDest.travelers}</p>
+  <p class="booked-trip-card-details">Cost: $${bookedDest.cost.toFixed(2)}</p>
   </article`
-
 }
 
 

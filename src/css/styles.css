@@ -49,6 +49,11 @@ body {
 
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 .login-page {
   display: flex;
   flex-direction: column;
@@ -76,7 +81,8 @@ header {
   display: none;
 }
 
-.login-form {
+.login-form,
+.trip-input-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,8 +131,7 @@ header {
 }
 
 .all-trips-grid,
-.destinations-grid,
-.booked-trip-grid {
+.destinations-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
@@ -144,8 +149,12 @@ header {
   justify-content: left;
   margin: 20px auto;
   padding:5px 5px;
-  height: 500px;
+  height: 550px;
   width: 320px;
+}
+
+.trips-page-header {
+  font-size: 28px;
 }
 
 .trips-heading,
@@ -170,6 +179,21 @@ header {
 .destinations-page {
   height: 800px;
   overflow-y: scroll;
+}
+
+#booked-trip-container {
+  display: flex;
+  flex-direction: column;
+}
+.booked-trip-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.booked-trip-card-details {
+  font-size: 18px;
 }
 
 .red {
