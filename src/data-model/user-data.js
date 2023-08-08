@@ -11,7 +11,12 @@ const getUserDetails = (dataObject, user) => {
     return traveler.id === user
   })
   console.log('userDetails: ', userDetails)
-  return userDetails
+  if (userDetails === undefined) {
+    const result = 'Please Enter a Valid User id'
+    return result
+  } else {
+      return userDetails
+  }
   // const userDestinations = array.trips[user]
   // console.log('array[user]: ', userDetails)
   // return array
@@ -24,7 +29,12 @@ const getUserTripsDetails = (dataObject, user) => {
     return trip.userID === user
   })
   console.log('userTripsDetails: ', userTripsDetails)
-  return userTripsDetails
+  if (userTripsDetails.length === 0) {
+    const result = 'There are no trips for this user'
+    return result
+  } else {
+      return userTripsDetails
+  } 
 }
 
 const getUserDestinations = (globalData) => {
@@ -34,39 +44,53 @@ const getUserDestinations = (globalData) => {
     // console.log('trip.destinationID: ', trip.destinationID)
     // console.log('globalData.destinations.id: ', globalData.destinations)
     
-    const currentDestination = globalData.destinations.find((destination) => {
+    const currentDestination = globalData.destinations.find((destination) => 
       // console.log('trip.destinationID: ', trip.destinationID)
       // console.log('destination.id: ', destination.id)
-      return trip.destinationID === destination.id
-    })
+      destination.id === trip.destinationID 
+    )
 
     console.log('currentDestination: ', currentDestination)
 
     console.log(dayjs(trip.date).add(10,'day').format('MM-DD-YYYY'))
-
     const dates = `${dayjs(trip.date).format('MM-DD-YYYY')} - ${dayjs(trip.date).add((trip.duration),'day').format('MM-DD-YYYY')}`
     console.log('<<<<trip.date: ', trip.date)
     console.log('<<<<<tripStatus: ', trip.status)
     console.log('dates: ', dates)
-
-    return {
+    if (currentDestination === undefined) {
+      return 'bad data'
+    } else {
+      return {
        name: currentDestination.destination,
        dates: dates,
        travelers: trip.travelers,
-       cost: findCost
-       (currentDestination, trip),
+       cost: findCost(currentDestination, trip),
        currentYearCost: findCurrentYearTripCosts(currentDestination, trip),
        image: currentDestination.image,
        status: trip.status
+      }
     }
-    
   })
+
   console.log('userDestinations: ', userDestinations)
-  return userDestinations
+  // if (currentDestination.destination === undefined) {
+  //   return 'bad data'
+  // } else {
+      if (userDestinations.includes('bad data')) {
+        return 'bad data'
+      } else {
+          return userDestinations
+        }
+    // } 
 }
 
 const findCost = (currentDestination, trip) => {
-  return (((trip.travelers * currentDestination.estimatedFlightCostPerPerson) + (trip.duration * currentDestination.estimatedLodgingCostPerDay)) * 1.1)
+  const cost = (((trip.travelers * currentDestination.estimatedFlightCostPerPerson) + (trip.duration * currentDestination.estimatedLodgingCostPerDay)) * 1.1)
+  if (trip.travelers < 1 || trip.duration < 1) {
+    return 'bad data'
+  } else {
+    return cost
+  }
 }
 
 const findCurrentYearTripCosts = (currentDestination, trip) => {
@@ -81,11 +105,18 @@ const findCurrentYearTripCosts = (currentDestination, trip) => {
 const findNewDestinationCost = (duration, travelers, destinationData) => {
   console.log('-->duration: ', destinationData)
   console.log('-->travelers: ', destinationData.estimatedLodgingCostPerDay)
-  return (((travelers * destinationData.estimatedFlightCostPerPerson) + (duration * destinationData.estimatedLodgingCostPerDay)) * 1.1)
+  if (travelers < 1 || duration < 1) {
+    return 'bad data'
+  } else {
+    return (((travelers * destinationData.estimatedFlightCostPerPerson) + (duration * destinationData.estimatedLodgingCostPerDay)) * 1.1)
+  }
 }
 
 const createDestinationsInfo = (globalData, date, duration, travelers) => {
-  const destinationCardsInfo = globalData.destinations.map((destination) => {
+  const destinationsWithout45 = globalData.destinations.filter((destination => {
+    return destination.id !== 45
+  }))
+  const destinationCardsInfo = destinationsWithout45.map((destination) => {
 
     
 
@@ -115,4 +146,5 @@ export {
   getUserDestinations,
   findNewDestinationCost,
   createDestinationsInfo,
+  findCost,
 }
