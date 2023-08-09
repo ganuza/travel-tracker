@@ -1,100 +1,59 @@
-# Webpack Starter Kit
+# TREKTRKR Starter Kit
 
-## Clone This Repo
-TEST
+## Abstract
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+TREKTRKR simplifies the way you track and plan your vacation trips.  This visual trip tracker and planner not only lets you see your past trips and associated costs, but also lets you plan and cost out new trips!  Entering a few pieces of information and with the click of a few buttons, you are on your way to booking a trip with your travel agent.  Let the travels begin!
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+## Server Setup
+- fork this repository:  https://github.com/turingschool-examples/travel-tracker-api
+- clone it to your local machine using the command:  git@github.com:turingschool-examples/travel-tracker-api.git
+- Run the command: cd travel-tracker-api
+- Run the command: npm install
+- Run the command: npm start
 
-Now try to commit something (just add a line in the README) and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+## Client App Setup
+- Clone it to your local machine using the command: git clone git@github.com:ganuza/travel-tracker.git
+- Run the command: cd travel-tracker
+- Run the command: npm install
+- Run the command: npm start
 
-## Setup
+## Preview of App
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
+![image](https://github.com/ganuza/travel-tracker/assets/31826116/e4f9d3a9-b57a-4b15-87ff-d778473758b8)
 
-Then install the library dependencies. Run:
+## Context
 
-```bash
-npm install
-```
+I completed this project in the last 2 weeks of of Mod 2 of the Front End development program at Turing School of Software and Design.  This was my final Solo Project for Mod 2 and I completed it remotely over the span of 6 days, putting in over 60 hours on this project.
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with the Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+I used HTML, CSS, and JavaScript written in my VS Code editor with Webpack installed.  GitHub was used not only for storing my code, but also for tracking my project.
 
-## Where to Add Your Code
+I tried to keep the HTML structure small and light and followed the order of the structure in the CSS rules.  JavaScript functions were arranged in different files for easier readability.  Test driven development was implemented with the Mocha framework and Chai library.
 
-### JavaScript
+## Contributor
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+Adrian Zabolitzki - 2305 FE Mod student at Turing School for Software and Design
+https://github.com/ganuza
 
-**Create all of your feature code files in the `src` directory.**
+## Learning Goals
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+- Use object and array prototype methods to perform data manipulation
+- Create a clear and accessible user interface
+- Make network requests to retrieve data
+- Implement a robust testing suite using TDD
+- Write DRY, reusable code that follows SRP (Single Responsibility Principle)
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+## Wins + Challenges
+- A challenge with a big project like this was breaking it down into small, manageable chunks.  While we were given user stories to guide us, I had to break them down into actionable steps.  I found that creating the data and then following up the data with DOM updates was important.
+- Another challenge was keeping the information easy to read in VS Code.  Breaking the Javascript files down into scripts, domUpdates, and user-data helped with readability and made for a lot less scrolling
+- A big win was getting the POST to work and then seeing the first booked trip show up on the Trips Dashboard!
 
-### HTML
+## Future Features
+- Adding buttons to view trips separately based on past trips, upcoming trips, and pending trips
+- Adding another layer where a booking agent can 'approve' trips
+- A user can add notes to the trips
+- A user can sort the trips by date and cost
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
+## Resources
 
-### Images
+Josh Comeau's custom CSS Reset is being used to ensure that the app is more clean and will lead to a better user experience.
 
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
