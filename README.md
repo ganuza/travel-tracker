@@ -5,8 +5,8 @@
 TREKTRKR simplifies the way you track and plan your vacation trips.  This visual trip tracker and planner not only lets you see your past trips and associated costs, but also lets you plan and cost out new trips!  Entering a few pieces of information and with the click of a few buttons, you are on your way to booking a trip with your travel agent.  Let the travels begin!
 
 ## Server Setup
-- fork this repository:  https://github.com/turingschool-examples/travel-tracker-api
-- clone it to your local machine using the command:  git@github.com:turingschool-examples/travel-tracker-api.git
+- Fork this repository:  https://github.com/turingschool-examples/travel-tracker-api
+- Clone it to your local machine using the command:  git@github.com:turingschool-examples/travel-tracker-api.git
 - Run the command: cd travel-tracker-api
 - Run the command: npm install
 - Run the command: npm start
