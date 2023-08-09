@@ -13,9 +13,6 @@ export const promises = [
 ]
 
 export const postData = (bookedDestination) => {
-
-  console.log('bookedDest: ', bookedDestination)
-  
   const postObject = {
     id: Date.now(), 
     userID: bookedDestination.userID, 
@@ -26,8 +23,6 @@ export const postData = (bookedDestination) => {
     status: 'pending',
     suggestedActivities: [],
     }
-
-  console.log('postObject: ', postObject)
   
   return fetch("http://localhost:3001/api/v1/trips", {
     method: 'POST',
