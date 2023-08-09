@@ -19,7 +19,7 @@ TREKTRKR simplifies the way you track and plan your vacation trips.  This visual
 
 ## Preview of App
 
-![image](https://github.com/ganuza/travel-tracker/assets/31826116/e4f9d3a9-b57a-4b15-87ff-d778473758b8)
+
 
 ## Context
 
