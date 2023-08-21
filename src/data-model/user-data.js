@@ -106,4 +106,5 @@ export {
   getUserDestinations,
   createDestinationsInfo,
   findCost,
+  findNewDestinationCost
 }
